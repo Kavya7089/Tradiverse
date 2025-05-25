@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, Globe, Search, User } from 'lucide-react';
-
+import logo from '/src/assets/logo.png;
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -55,7 +55,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src="/src/assets/logo.png" 
+                src=`url(${logo})` 
                 alt="Heritage Platform Logo" 
                 className="h-10 w-10 mr-2 rounded-full" 
               />
