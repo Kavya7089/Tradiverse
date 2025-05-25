@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center mb-4">
-              <img src="/src/assets/logo.svg" alt="Heritage Platform Logo" className="h-10 w-10 mr-2" />
+              <img src="/src/assets/logo.png" alt="Heritage Platform Logo" className="h-10 w-10 mr-2 rounded-full" />
               <span className="font-display font-semibold text-xl text-neutral-50">Tradiverse</span>
             </Link>
             <p className="text-neutral-300 text-sm leading-relaxed mb-6">

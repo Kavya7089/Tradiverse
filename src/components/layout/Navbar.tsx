@@ -55,9 +55,9 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src="/src/assets/logo.svg" 
+                src="/src/assets/logo.png" 
                 alt="Heritage Platform Logo" 
-                className="h-10 w-10 mr-2" 
+                className="h-10 w-10 mr-2 rounded-full" 
               />
               <span className={`font-display font-semibold text-lg ${
                 scrollPosition > 50 ? 'text-neutral-50' : 'text-primary-700'
