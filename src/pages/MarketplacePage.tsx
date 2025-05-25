@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Filter, Search, SortAsc, SortDesc } from 'lucide-react';
 import ArtifactCard from '../components/common/ArtifactCard';
 import { artifacts } from '../data/mockData';
+import green from '/src/assets/greenmart.png';
 
 const MarketplacePage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -66,10 +67,16 @@ const MarketplacePage: React.FC = () => {
         </div>
       </div>
       
-      <div className=" mx-auto px-4   py-12 bg-primary-800">
+      <div className=" mx-auto px-4   py-12"
+       style={{
+          backgroundImage: `url(${green})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'fixed',
+          backgroundRepeat: 'no-repeat',
+        }}>
         <div className="flex flex-col md:flex-row gap-8">
           {/* Filters */}
-          <div className="w-full md:w-64 bg-primary-800 p-6 rounded-lg shadow-soft h-fit">
+          <div className="w-full md:w-64 bg-primary-800 bg-opacity-55 p-6 rounded-lg shadow-soft h-fit">
             <div className="flex items-center mb-4">
               <Filter size={18} className="text-primary-700 mr-2" />
               <h2 className="text-lg font-semibold text-white">Filters</h2>

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { BookOpen, Video, Music, Search, Filter, Lock } from 'lucide-react';
 import { knowledgeItems } from '../data/mockData';
 import KnowledgeCard from '../components/common/KnowledgeCard';
+import green from '/src/assets/greenmart.png';
 
 const KnowledgeVaultPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -45,17 +46,23 @@ const KnowledgeVaultPage: React.FC = () => {
         </div>
       </div>
       
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-12"
+      style={{
+                backgroundImage: `url(${green})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'fixed',
+                backgroundRepeat: 'no-repeat',
+              }}>
         <div className="flex flex-col md:flex-row gap-8">
           {/* Filters */}
-          <div className="w-full md:w-64 bg-white bg-opacity-30 p-6 rounded-lg shadow-soft h-fit">
+          <div className="w-full md:w-64 bg-primary-800 bg-opacity-70 p-6 rounded-lg shadow-soft h-fit">
             <div className="flex items-center mb-4">
               <Filter size={18} className="text-primary-700 mr-2" />
-              <h2 className="text-lg font-semibold text-neutral-800">Filters</h2>
+              <h2 className="text-lg font-semibold text-neutral-200">Filters</h2>
             </div>
             
             <div className="mb-6">
-              <label className="block text-sm font-medium text-neutral-700 mb-2">
+              <label className="block text-sm font-medium text-neutral-200  mb-2">
                 Content Type
               </label>
               <div className="space-y-2">
@@ -66,9 +73,9 @@ const KnowledgeVaultPage: React.FC = () => {
                     name="contentType"
                     checked={selectedType === ''}
                     onChange={() => setSelectedType('')}
-                    className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300"
+                    className="h-4 w-4 text-grey-600 focus:ring-primary-500 border-neutral-300"
                   />
-                  <label htmlFor="allTypes" className="ml-2 text-sm text-neutral-700">
+                  <label htmlFor="allTypes" className="ml-2 text-sm text-neutral-200">
                     All Types
                   </label>
                 </div>
@@ -81,7 +88,7 @@ const KnowledgeVaultPage: React.FC = () => {
                     onChange={() => setSelectedType('text')}
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300"
                   />
-                  <label htmlFor="textType" className="ml-2 text-sm text-neutral-700 flex items-center">
+                  <label htmlFor="textType" className="ml-2 text-sm text-neutral-200 flex items-center">
                     <BookOpen size={14} className="mr-1" />
                     Text
                   </label>
@@ -95,7 +102,7 @@ const KnowledgeVaultPage: React.FC = () => {
                     onChange={() => setSelectedType('video')}
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300"
                   />
-                  <label htmlFor="videoType" className="ml-2 text-sm text-neutral-700 flex items-center">
+                  <label htmlFor="videoType" className="ml-2 text-sm text-neutral-200 flex items-center">
                     <Video size={14} className="mr-1" />
                     Video
                   </label>
@@ -109,7 +116,7 @@ const KnowledgeVaultPage: React.FC = () => {
                     onChange={() => setSelectedType('audio')}
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300"
                   />
-                  <label htmlFor="audioType" className="ml-2 text-sm text-neutral-700 flex items-center">
+                  <label htmlFor="audioType" className="ml-2 text-sm text-neutral-200 flex items-center">
                     <Music size={14} className="mr-1" />
                     Audio
                   </label>
@@ -118,7 +125,7 @@ const KnowledgeVaultPage: React.FC = () => {
             </div>
             
             <div className="mb-6">
-              <label className="block text-sm font-medium text-neutral-700 mb-2">
+              <label className="block text-sm font-medium text-neutral-200 mb-2">
                 Access Level
               </label>
               <div className="space-y-2">
@@ -131,7 +138,7 @@ const KnowledgeVaultPage: React.FC = () => {
                     onChange={() => setSelectedAccess('')}
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300"
                   />
-                  <label htmlFor="allAccess" className="ml-2 text-sm text-neutral-700">
+                  <label htmlFor="allAccess" className="ml-2 text-sm text-neutral-200">
                     All Access Levels
                   </label>
                 </div>
@@ -144,7 +151,7 @@ const KnowledgeVaultPage: React.FC = () => {
                     onChange={() => setSelectedAccess('public')}
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300"
                   />
-                  <label htmlFor="publicAccess" className="ml-2 text-sm text-neutral-700">
+                  <label htmlFor="publicAccess" className="ml-2 text-sm text-neutral-200">
                     Public
                   </label>
                 </div>
@@ -157,7 +164,7 @@ const KnowledgeVaultPage: React.FC = () => {
                     onChange={() => setSelectedAccess('community')}
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300"
                   />
-                  <label htmlFor="communityAccess" className="ml-2 text-sm text-neutral-700 flex items-center">
+                  <label htmlFor="communityAccess" className="ml-2 text-sm text-neutral-200 flex items-center">
                     <Lock size={12} className="mr-1" />
                     Community Only
                   </label>
@@ -171,7 +178,7 @@ const KnowledgeVaultPage: React.FC = () => {
                     onChange={() => setSelectedAccess('restricted')}
                     className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-neutral-300"
                   />
-                  <label htmlFor="restrictedAccess" className="ml-2 text-sm text-neutral-700 flex items-center">
+                  <label htmlFor="restrictedAccess" className="ml-2 text-sm text-neutral-200 flex items-center">
                     <Lock size={12} className="mr-1" />
                     Restricted
                   </label>

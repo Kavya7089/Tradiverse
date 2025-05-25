@@ -10,6 +10,7 @@ import { artisans, artifacts, impactMetrics } from '../data/mockData';
 import React, { Suspense, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
+import bgtra from '/src/assets/bgtra.png';
 
 // Slowly rotating Model component
 function Model() {
@@ -35,8 +36,7 @@ function Model() {
   );
 }
 
-const HERO_BG =
-  "url('https://images.pexels.com/photos/6210777/pexels-photo-6210777.jpeg')";
+
 
 const HomePage: React.FC = () => {
   const featuredArtisans = artisans.filter(artisan => artisan.featured).slice(0, 3);
@@ -46,38 +46,21 @@ const HomePage: React.FC = () => {
   return (
     <div>
       {/* Hero + 3D Model Side by Side with shared background */}
-      <div
-        className="flex flex-col md:flex-row items-center justify-between   py-12 px-4 sm:px-8 lg:px-16"
-        style={{
-          backgroundImage: HERO_BG,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        <div className="flex-1 min-w-[400px] max-w-xxl mb-8 md:mb-0 md:mr-12 rounded-lg p-6">
+      
+        <div className="flex-1 min-w-full max-w-xxl mb-8 md:mb-0 md:mr-12 rounded-lg ">
           <HeroSection
             title="Preserving Culture Through Technology"
             subtitle="Connect with artisans from around the world, explore authentic cultural artifacts, and help preserve traditional heritage."
-            imageUrl="https://images.pexels.com/photos/6210777/pexels-photo-6210777.jpeg"
+            imageUrl={bgtra}
             ctaText="Explore Marketplace"
             ctaLink="/marketplace"
           />
         </div>
-        <div className="flex-1 flex items-center justify-center w-full max-w-lg h-[350px] md:h-[400px] rounded-lg p-4">
-          <Canvas camera={{ position: [0, 1, 5] }}>
-            <ambientLight />
-            <directionalLight position={[0, 10, 5]} />
-            <Suspense fallback={null}>
-              <Model />
-            </Suspense>
-            <OrbitControls />
-          </Canvas>
-        </div>
-      </div>
+        
+    
       
       {/* Mission Statement */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-16 bg-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-800 mb-6">
@@ -96,7 +79,7 @@ const HomePage: React.FC = () => {
       </section>
       
       {/* Key Features */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-primary-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-800 text-center mb-12">
             How It Works
@@ -108,7 +91,7 @@ const HomePage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-center"
+              className="text-center bg-primary-400 hover:bg-primary-500 p-5 rounded-lg"
             >
               <div className="bg-primary-100 p-4 rounded-full inline-flex items-center justify-center mb-4">
                 <Shield size={28} className="text-primary-700" />
@@ -126,7 +109,7 @@ const HomePage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-center"
+              className="text-center  bg-primary-400 hover:bg-primary-500 p-5 rounded-lg"
             >
               <div className="bg-primary-100 p-4 rounded-full inline-flex items-center justify-center mb-4">
                 <Globe size={28} className="text-primary-700" />
@@ -144,7 +127,7 @@ const HomePage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-center"
+              className="text-center bg-primary-400 hover:bg-primary-500 p-5 rounded-lg"
             >
               <div className="bg-primary-100 p-4 rounded-full inline-flex items-center justify-center mb-4">
                 <DollarSign size={28} className="text-primary-700" />
@@ -162,7 +145,7 @@ const HomePage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="text-center"
+              className="text-center bg-primary-400 hover:bg-primary-500 p-5 rounded-lg"
             >
               <div className="bg-primary-100 p-4 rounded-full inline-flex items-center justify-center mb-4">
                 <BookOpen size={28} className="text-primary-700" />
@@ -178,29 +161,10 @@ const HomePage: React.FC = () => {
         </div>
       </section>
       
-      {/* Featured Artisans */}
-      <section className="py-16 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-baseline mb-8">
-            <h2 className="text-3xl font-display font-bold text-primary-800">
-              Featured Artisans
-            </h2>
-            <Link to="/artisans" className="text-primary-600 font-medium hover:text-primary-700 transition-colors flex items-center">
-              View all
-              <ChevronRight size={16} className="ml-1" />
-            </Link>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredArtisans.map((artisan) => (
-              <ArtisanCard key={artisan.id} artisan={artisan} />
-            ))}
-          </div>
-        </div>
-      </section>
+  
       
       {/* Featured Artifacts */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-neutral-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-baseline mb-8">
             <h2 className="text-3xl font-display font-bold text-primary-800">
@@ -247,12 +211,12 @@ const HomePage: React.FC = () => {
       </section>
       
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-700 to-primary-900 text-white">
+      <section className="py-20 bg-gradient-to-br from-neutral-200 to-neutral-400 text-grey-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
             Join Our Community
           </h2>
-          <p className="text-xl text-neutral-100 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-neutral-900 max-w-3xl mx-auto mb-8">
             Whether you're an artisan looking to share your craft, or someone passionate about preserving cultural heritage, there's a place for you.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">

@@ -14,7 +14,7 @@ const ArtifactCard: React.FC<ArtifactCardProps> = ({ artifact }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white bg-opacity-55 rounded-lg overflow-hidden shadow-medium hover:shadow-strong transition-shadow duration-300"
+      className="bg-white bg-opacity-75 rounded-lg overflow-hidden shadow-medium hover:shadow-strong transition-shadow duration-300"
     >
       <div className="relative">
         <img

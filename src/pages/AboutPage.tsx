@@ -1,4 +1,5 @@
 import React from 'react';
+import beu from '/src/assets/3dbeu.png'; // Replace with your image path
 
 // Sample team data (replace with real data or fetch dynamically)
 const team = [
@@ -26,10 +27,10 @@ const AboutPage: React.FC = () => {
       <section
         className="relative h-72 flex items-center justify-center"
         style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80')",
+          backgroundImage: `URL(${beu})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'fixed center',
+          backgroundRepeat: 'no-repeat',
         }}
         aria-label="Cultural Heritage"
       >
@@ -43,6 +44,9 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Main Content */}
+      <div className='bg-primary-200'>
+
+      
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <section>
           <h2 className="text-3xl font-bold text-primary-800 mb-6">Our Mission</h2>
@@ -113,6 +117,7 @@ const AboutPage: React.FC = () => {
         <p className="text-neutral-700 mt-10 text-center">
           Thank you for joining us on this journey to celebrate and sustain the world’s cultural treasures. Together, we can make a difference—one artifact, one artisan, and one story at a time.
         </p>
+      </div>
       </div>
     </div>
   );

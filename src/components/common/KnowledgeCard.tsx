@@ -25,7 +25,7 @@ const KnowledgeCard: React.FC<KnowledgeCardProps> = ({ item }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white bg-opacity-50 rounded-lg overflow-hidden shadow-medium hover:shadow-strong transition-shadow duration-300"
+      className="bg-white bg-opacity-70 rounded-lg overflow-hidden shadow-medium hover:shadow-strong transition-shadow duration-300"
     >
       <div className="relative">
         <img

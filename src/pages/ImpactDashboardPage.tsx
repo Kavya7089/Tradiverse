@@ -4,6 +4,7 @@ import ImpactCard from '../components/common/ImpactCard';
 import { impactMetrics } from '../data/mockData';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from 'recharts';
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
+import dpeo from '/src/assets/3dpeo.png'
 
 const impactData = [
   { name: 'Artisans', value: 187 },
@@ -29,7 +30,13 @@ const impactLocations = [
 
 const ImpactDashboardPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-primary-700 pt-16">
+    <div className="min-h-screen  pt-16"
+      style={{
+          backgroundImage: `url(${dpeo})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}>
       <div className="bg-primary-800 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
@@ -48,11 +55,11 @@ const ImpactDashboardPage: React.FC = () => {
           ))}
         </div>
         
-        <div className="bg-white rounded-lg shadow-medium p-6 mb-12">
+        <div className="bg-white bg-opacity-75 rounded-lg shadow-medium p-6 mb-12">
           <h2 className="text-2xl font-display font-bold text-primary-800 mb-6">
             Community Impact Visualization
           </h2>
-          <div className="h-[400px] w-full bg-primary-200 rounded-lg flex items-center justify-center">
+          <div className="h-[400px] w-full bg-primary-200 bg-opacity-70 rounded-lg flex items-center justify-center">
             <ResponsiveContainer width="100%" height="90%">
               <BarChart data={impactData} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" />
@@ -68,24 +75,24 @@ const ImpactDashboardPage: React.FC = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
           {/* Impact Stories */}
-          <div className="bg-white rounded-lg shadow-medium p-6">
+          <div className="bg-white bg-opacity-75  rounded-lg shadow-medium p-6">
             <h2 className="text-xl font-display font-bold text-primary-800 mb-4">
               Impact Stories
             </h2>
             <div className="space-y-4">
-              <div className="border-l-4 border-primary-500 pl-4 py-2">
+              <div className="border-l-4 bg-primary-200 bg-opacity-80 border-primary-500 pl-4 py-2">
                 <h3 className="font-semibold text-neutral-800">Reviving Hawaiian Kapa Making</h3>
                 <p className="text-sm text-neutral-600 mt-1">
                   Through the platform, Malia has been able to teach her traditional kapa making techniques to over 30 new apprentices, ensuring this ancient craft continues for generations.
                 </p>
               </div>
-              <div className="border-l-4 border-primary-500 pl-4 py-2">
+              <div className="border-l-4 bg-primary-200 bg-opacity-80 border-primary-500 pl-4 py-2">
                 <h3 className="font-semibold text-neutral-800">Preserving Mayan Wood Carving</h3>
                 <p className="text-sm text-neutral-600 mt-1">
                   Carlos has documented over 50 traditional Mayan carving techniques that were at risk of being lost, creating a digital archive for future artisans.
                 </p>
               </div>
-              <div className="border-l-4 border-primary-500 pl-4 py-2">
+              <div className="border-l-4 bg-primary-200 bg-opacity-80 border-primary-500 pl-4 py-2">
                 <h3 className="font-semibold text-neutral-800">Economic Revival in Enugu</h3>
                 <p className="text-sm text-neutral-600 mt-1">
                   Amara's Akwete cloth weaving has brought sustainable income to 15 families in her community, allowing them to live from their traditional craft rather than seeking work in cities.
@@ -95,11 +102,11 @@ const ImpactDashboardPage: React.FC = () => {
           </div>
           
           {/* Geographic Distribution */}
-          <div className="bg-white rounded-lg shadow-medium p-6">
+          <div className="bg-white bg-opacity-75 rounded-lg shadow-medium p-6">
             <h2 className="text-xl font-display font-bold text-primary-800 mb-4">
               Geographic Distribution
             </h2>
-            <div className="h-[300px] w-full bg-primary-200 rounded-lg flex items-center justify-center">
+            <div className="h-[300px] w-full bg-primary-200 bg-opacity-85 rounded-lg flex items-center justify-center">
               <ComposableMap
                 projectionConfig={{ scale: 60 }}
                 width={400}
@@ -139,8 +146,8 @@ const ImpactDashboardPage: React.FC = () => {
             </div>
           </div>
         </div>
-        
-        <div className="bg-white rounded-lg shadow-medium p-6">
+
+        <div className="bg-white  bg-opacity-75 rounded-lg shadow-medium p-6">
           <h2 className="text-2xl font-display font-bold text-primary-800 mb-6">
             Sustainability Goals Progress
           </h2>

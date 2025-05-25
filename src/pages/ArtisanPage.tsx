@@ -1,7 +1,8 @@
 // filepath: e:\project\src\pages\ArtisanPage.tsx
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, CheckCircle, Search } from "lucide-react";
+import { MapPin, CheckCircle, Search, SortAsc, SortDesc } from "lucide-react";
+import green from "/src/assets/greenmart.png";
 
 // Expanded artisan data with global traditions and cities
 const artisansData = [
@@ -369,13 +370,21 @@ const ArtisanPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCulture, setSelectedCulture] = useState("");
   const [verifiedOnly, setVerifiedOnly] = useState(false);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 2000]);
+  const [sortAscending, setSortAscending] = useState(true);
+  const [selectedType, setSelectedType] = useState<string>("");
+
+  // Get unique cultures
+  const cultures = Array.from(new Set(artisansData.map((a) => a.culture)));
+  // Get unique types
+  const types = Array.from(new Set(artisansData.map((a) => a.type).filter(Boolean)));
 
   const filteredArtisans = artisansData
     .filter(
       (artisan) =>
         artisan.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         artisan.biography.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        artisan.specialty.toLowerCase().includes(searchTerm.toLowerCase())
+        artisan.specialty?.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .filter(
       (artisan) => selectedCulture === "" || artisan.culture === selectedCulture
@@ -384,7 +393,46 @@ const ArtisanPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-primary-800 pt-16">
-      <div className=" mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="bg-primary-700 py-16">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h1 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+                  Cultural Artisans
+                </h1>
+                <p className="text-lg text-neutral-100 mb-8 max-w-3xl">
+                  Explore authentic cultural artifacts from artisans around the world, each with a story to tell.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <div className="relative flex-1">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Search size={20} className="text-neutral-400" />
+                    </div>
+                    <input
+                      type="text"
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      placeholder="Search artifacts, cultures, materials..."
+                      className="block w-full pl-10 pr-3 py-3 border-0 rounded-md focus:ring-2 focus:ring-primary-500 placeholder:text-neutral-400"
+                    />
+                  </div>
+                  
+                  <button
+                    onClick={() => setSortAscending(!sortAscending)}
+                    className="bg-primary-600 hover:bg-primary-800 text-white p-3 rounded-md flex items-center justify-center"
+                    title={sortAscending ? "Sort by price: Low to High" : "Sort by price: High to Low"}
+                  >
+                    {sortAscending ? <SortAsc size={20} /> : <SortDesc size={20} />}
+                  </button>
+                </div>
+              </div>
+            </div>
+      <div className="  mx-auto px-4   py-12"
+      style={{
+          backgroundImage: `url(${green})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}>
         <div className="flex flex-col md:flex-row gap-8">
           {/* Filters */}
           <div className="w-full md:w-64 bg-white bg-opacity-30 p-6 rounded-lg shadow-soft h-fit mb-8 md:mb-0">
