@@ -44,27 +44,27 @@ const mates = [
   {
     name: 'Kavya Rajoria',
     role: 'Tech Lead, Developer',
-    img: 'https://randomuser.me/api/portraits/women/68.jpg',
+    img: './src/assets/kavya.jpg',
   },
   {
     name: 'Nishkarsh Gupta',
     role: ' Cultural Content Curator',
-    img: 'https://randomuser.me/api/portraits/men/65.jpg',
+    img: './src/assets/nishakarsh.jpg',
   },
   {
     name: 'Mahi Shriwastava',
-    role: 'Comamunity Engagement',
-    img: 'https://randomuser.me/api/portraits/women/43.jpg',
+    role: 'Community Engagement',
+    img: './src/assets/mahi.jpg',
   },
   {
     name: 'Aryan Tiwari',
     role: 'Hardware Expert',
-    img: 'https://randomuser.me/api/portraits/women/43.jpg',
+    img: './src/assets/aryan.jpg',
   },
   {
-    name: 'Renam Chourasiya',
+    name: 'Renam Chourasia',
     role: 'UI/UX Designer',
-    img: 'https://randomuser.me/api/portraits/women/43.jpg',
+    img: './src/assets/renam.jpg',
   },
   
 ];
