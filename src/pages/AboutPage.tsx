@@ -44,29 +44,29 @@ const mates = [
   {
     name: 'Kavya Rajoria',
     role: 'Tech Lead, Developer',
-    img: './src/assets/kavya.jpg',
+    img: './src/assets/kavya.png',
   },
   {
     name: 'Nishkarsh Gupta',
     role: ' Cultural Content Curator',
-    img: './src/assets/nishakarsh.jpg',
+    img: './src/assets/nishakarsh.png',
   },
   {
     name: 'Mahi Shriwastava',
     role: 'Community Engagement',
-    img: './src/assets/mahi.jpg',
+    img: './src/assets/mahi.png',
   },
   {
     name: 'Aryan Tiwari',
     role: 'Hardware Expert',
-    img: './src/assets/aryan.jpg',
+    img: './src/assets/aryan.png  ',
   },
   {
     name: 'Renam Chourasia',
     role: 'UI/UX Designer',
-    img: './src/assets/renam.jpg',
+    img: './src/assets/renam.png',
   },
-  
+
 ];
 
 const AboutPage: React.FC = () => {
