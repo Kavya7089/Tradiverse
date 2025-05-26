@@ -1,37 +1,82 @@
 import React from 'react';
 import beu from '/src/assets/3dbeu.png'; // Replace with your image path
 
-// Sample team data (replace with real data or fetch dynamically)
-const team = [
+import { Link } from 'react-router-dom';
+import logo from '/src/assets/logo.png';
+
+const Navbar: React.FC = () => (
+  <nav className="w-full bg-white shadow-md py-4 px-6 flex justify-between items-center">
+
+    <Link to="/" className=" flex items-center">
+      <img 
+        src={logo} 
+        alt="Heritage Platform Logo" 
+        className="h-10 w-10 mr-2 rounded-full" 
+      />
+      <span className='font-display font-semibold text-lg'>
+        Tradiverse
+      </span>
+    </Link>
+    <div className="flex gap-4">
+      <Link
+        to="/signin"
+        className="px-4 py-2 rounded-md text-primary-700 font-medium hover:bg-primary-100 transition"
+      >
+        Sign In
+      </Link>
+      <Link
+        to="/signup"
+        className="px-4 py-2 rounded-md bg-primary-700 text-white font-medium hover:bg-primary-800 transition"
+      >
+        Sign Up
+      </Link>
+       <Link
+        to="/about"
+        className="px-4 py-2 rounded-md text-primary-700 font-medium hover:bg-primary-100 transition"
+      >
+        About Us
+      </Link>
+    </div>
+  </nav>
+);
+
+const mates = [
   {
-    name: 'Aisha Khan',
-    role: 'Founder & CEO',
+    name: 'Kavya Rajoria',
+    role: 'Tech Lead, Developer',
     img: 'https://randomuser.me/api/portraits/women/68.jpg',
   },
   {
-    name: 'Miguel Santos',
-    role: 'Head of Partnerships',
+    name: 'Nishkarsh Gupta',
+    role: ' Cultural Content Curator',
     img: 'https://randomuser.me/api/portraits/men/65.jpg',
   },
   {
-    name: 'Lina Zhang',
-    role: 'Lead Designer',
+    name: 'Mahi Shriwastava',
+    role: 'Comamunity Engagement',
     img: 'https://randomuser.me/api/portraits/women/43.jpg',
   },
+  {
+    name: 'Aryan Tiwari',
+    role: 'Hardware Expert',
+    img: 'https://randomuser.me/api/portraits/women/43.jpg',
+  },
+  {
+    name: 'Renam Chourasiya',
+    role: 'UI/UX Designer',
+    img: 'https://randomuser.me/api/portraits/women/43.jpg',
+  },
+  
 ];
 
 const AboutPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-neutral-50 pt-0">
+      <Navbar />
       {/* Hero Section */}
       <section
-        className="relative h-72 flex items-center justify-center"
-        style={{
-          backgroundImage: `URL(${beu})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'fixed center',
-          backgroundRepeat: 'no-repeat',
-        }}
+        className="relative h-72 flex items-center justify-center bg-primary-600"
+        
         aria-label="Cultural Heritage"
       >
         <div className="absolute inset-0 bg-primary-900 opacity-60"></div>
@@ -44,14 +89,24 @@ const AboutPage: React.FC = () => {
       </section>
 
       {/* Main Content */}
-      <div className='bg-primary-200'>
+      <div className='flex'
+       style={{
+          backgroundImage: `URL(${beu})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'fixed center',
+          backgroundRepeat: 'no-repeat',
+        }}>
 
       
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-5xl mx-auto my-20 px-4 sm:px-6 lg:px-8 py-16 bg-white rounded-lg shadow-lg bg-opacity-70">
         <section>
           <h2 className="text-3xl font-bold text-primary-800 mb-6">Our Mission</h2>
           <p className="text-lg text-neutral-700 mb-6">
-            <strong>Welcome to our platform!</strong> We are dedicated to preserving and celebrating the world’s diverse cultural heritage by connecting you with authentic artisans and their unique creations.
+            <strong>Welcome to our platform!</strong> A Metaverse platform for ethical cultural  preservation and empowerment. 
+            <strong> Tradiverse</strong>, where we believe in the power of culture, community, and craftsmanship.
+          </p>
+          <p className="text-lg text-neutral-700 mb-6">
+           We are dedicated to preserving and celebrating the world’s diverse cultural heritage by connecting you with authentic artisans and their unique creations.
           </p>
           <p className="text-neutral-700 mb-6">
             Our mission is to empower artisans from around the globe, provide them with a digital marketplace, and help keep traditional crafts alive. By bridging the gap between artisans and enthusiasts, we foster appreciation, understanding, and support for cultural diversity.
@@ -61,10 +116,11 @@ const AboutPage: React.FC = () => {
         <section>
           <h2 className="text-2xl font-semibold text-primary-700 mb-4">What We Offer</h2>
           <ul className="list-disc list-inside text-neutral-700 mb-6 space-y-1">
-            <li>Discover authentic, handcrafted artifacts and artworks.</li>
-            <li>Learn about the stories, cultures, and techniques behind each creation.</li>
-            <li>Support artisans directly and contribute to the preservation of traditional skills.</li>
-            <li>Engage with a global community passionate about culture and creativity.</li>
+            <li>Artisan Profiles & Cultural Storytelling (AI/ML + Media Uploads)</li>
+            <li>NFT-based Authenticity & Ownership (Blockchain)</li>
+            <li>Fair Trade Digital Marketplace (Decentralized + Fiat Payment Options).</li>
+            <li> Cultural Knowledge Vault (IP Protection + Access Control).</li>
+            <li>Reciprocation & Visibility Dashboard (Impact Analytics)</li>
           </ul>
         </section>
 
@@ -80,11 +136,11 @@ const AboutPage: React.FC = () => {
         {/* Team Section */}
         <section>
           <h2 className="text-2xl font-semibold text-primary-700 mb-4">Meet the Team</h2>
-          <div className="flex flex-wrap gap-6 mb-8">
-            {team.map((member) => (
+          <div className="flex flex-wrap  gap-8 mb-10 justify-center">
+            {mates.map((member) => (
               <div
                 key={member.name}
-                className="flex flex-col items-center bg-white rounded-lg shadow p-4 w-40"
+                className="flex flex-col items-center bg-white rounded-lg shadow p-4 w-60"
               >
                 <img
                   src={member.img}

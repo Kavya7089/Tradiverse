@@ -5,7 +5,7 @@ import { impactMetrics } from '../data/mockData';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Legend } from 'recharts';
 import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import dpeo from '/src/assets/3dpeo.png'
-
+import Navbar from '../components/layout/Navbar';
 const impactData = [
   { name: 'Artisans', value: 187 },
   { name: 'Artifacts', value: 420 },
@@ -30,15 +30,17 @@ const impactLocations = [
 
 const ImpactDashboardPage: React.FC = () => {
   return (
-    <div className="min-h-screen  pt-16"
-      style={{
-          backgroundImage: `url(${dpeo})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}>
-      <div className="bg-primary-800 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
+      <Navbar />
+      <div className="min-h-screen  pt-16"
+        style={{
+            backgroundImage: `url(${dpeo})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+          }}>
+        <div className="bg-primary-800 py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             Impact Dashboard
           </h1>
@@ -180,6 +182,7 @@ const ImpactDashboardPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

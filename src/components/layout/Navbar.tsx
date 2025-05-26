@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
     { name: 'Artisans', path: '/artisans' },
     { name: 'Knowledge Vault', path: '/knowledge' },
     { name: 'Impact', path: '/impact' },
-    { name: 'About', path: '/about' },
+   
     
   ];
 
@@ -118,7 +118,7 @@ const Navbar: React.FC = () => {
                 <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50">
                   <div className="py-1">
                     <Link 
-                      to="/profile" 
+                      to="/dashboard" 
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-primary-100"
                       onClick={() => setUserMenuOpen(false)}
                     >

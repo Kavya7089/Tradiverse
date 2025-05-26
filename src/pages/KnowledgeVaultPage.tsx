@@ -4,6 +4,7 @@ import { BookOpen, Video, Music, Search, Filter, Lock } from 'lucide-react';
 import { knowledgeItems } from '../data/mockData';
 import KnowledgeCard from '../components/common/KnowledgeCard';
 import green from '/src/assets/greenmart.png';
+import Navbar from '../components/layout/Navbar';
 
 const KnowledgeVaultPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,17 +22,19 @@ const KnowledgeVaultPage: React.FC = () => {
     .filter(item => selectedAccess === '' || item.accessLevel === selectedAccess);
   
   return (
-    <div className="min-h-screen bg-primary-700 pt-16">
-      <div className="bg-primary-800 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
-            Cultural Knowledge Vault
-          </h1>
-          <p className="text-lg text-neutral-100 mb-8 max-w-3xl">
-            Explore and learn from the wisdom and traditions of cultures around the world, preserved digitally for future generations.
-          </p>
-          
-          <div className="relative">
+    <>
+      <Navbar />
+      <div className="min-h-screen bg-primary-700 pt-16">
+        <div className="bg-primary-800 py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
+              Cultural Knowledge Vault
+            </h1>
+            <p className="text-lg text-neutral-100 mb-8 max-w-3xl">
+              Explore and learn from the wisdom and traditions of cultures around the world, preserved digitally for future generations.
+            </p>
+
+            <div className="relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
               <Search size={20} className="text-neutral-400" />
             </div>
@@ -225,6 +228,7 @@ const KnowledgeVaultPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

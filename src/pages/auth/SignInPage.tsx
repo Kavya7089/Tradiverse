@@ -1,0 +1,215 @@
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Mail, Lock, ArrowRight, RotateCw } from 'lucide-react';
+import { useAuth } from '../../contexts/AuthContext';
+import Logo from '/src/assets/logo.png';
+import side from '../../assets/3dpeo.png';
+
+const SignInPage: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState<'seller' | 'purchaser'>('purchaser');
+  const { login, loading, error } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Get role from URL params if available
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const roleParam = params.get('role');
+    if (roleParam && ['seller', 'purchaser'].includes(roleParam)) {
+      setRole(roleParam as 'seller' | 'purchaser');
+    }
+  }, [location]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await login(email, password, role);
+      if (role === 'seller') {
+        navigate('/dashboardadmin');
+      } else {
+        navigate('/dashboarduser');
+      }
+    } catch (err) {
+      console.error('Login failed:', err);
+    }
+  };
+
+  return (
+    <div className="flex min-h-screen">
+      {/* Left Side - Form */}
+      <div className="flex w-full bg-primary-200 flex-col justify-center px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:w-1/2">
+        <div className="mx-auto w-full max-w-sm lg:w-96">
+          <div className="text-center">
+            <Link to="/" className="inline-flex items-center">
+              <div className="flex h-10 w-10 items-center justify-center ">
+                <img src={Logo} alt="Logo" className="h-10 w-10" />
+              </div>
+              <span className="ml-2 text-xl font-bold text-gray-900">Tradiverse</span>
+            </Link>
+            <h2 className="mt-6 text-3xl font-bold tracking-tight text-gray-900">
+              Sign in to your account
+            </h2>
+            <p className="mt-2 text-sm text-gray-600">
+              Or{' '}
+              <Link to="/signup" className="font-medium text-primary-600 hover:text-primary-500">
+                create a new account
+              </Link>
+            </p>
+          </div>
+
+          <div className="mt-8">
+            <div className="mb-6">
+              <div className="flex justify-center space-x-2">
+                <button
+                  type="button"
+                  onClick={() => setRole('purchaser')}
+                  className={`rounded-md px-4 py-2 text-sm font-medium ${
+                    role === 'purchaser'
+                      ? 'bg-primary-700 text-white'
+                      : 'bg-gray-50 text-primary-700 hover:bg-gray-100'
+                  }`}
+                >
+                  Purchaser
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setRole('seller')}
+                  className={`rounded-md px-4 py-2 text-sm font-medium ${
+                    role === 'seller'
+                      ? 'bg-primary-700 text-white'
+                      : 'bg-gray-50 text-primary-700 hover:bg-gray-100'
+                  }`}
+                >
+                  Seller
+                </button>
+              </div>
+            </div>
+
+            {error && (
+              <div className="mb-4 rounded-md bg-red-50 p-4 text-sm text-red-900">
+                {error}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="email" className="block mb-2 text-sm font-medium text-primary-700">
+                  Email address
+                </label>
+                <div className="mt-1 relative">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <Mail size={16} className="text-gray-400" />
+                  </div>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    className="w-full p-2 border rounded pl-10"
+                    placeholder="you@example.com"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="password" className="block mb-2 text-sm font-medium text-primary-700">
+                  Password
+                </label>
+                <div className="mt-1 relative">
+                  <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <Lock size={16} className="text-gray-400" />
+                  </div>
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    autoComplete="current-password"
+                    required
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    className="w-full p-2 border rounded pl-10"
+                    placeholder="••••••••"
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="flex items-center">
+                  <input
+                    id="remember-me"
+                    name="remember-me"
+                    type="checkbox"
+                    className="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
+                  />
+                  <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                    Remember me
+                  </label>
+                </div>
+
+                <div className="text-sm">
+                  <a href="#" className="font-medium text-primary-600 hover:text-primary-500">
+                    Forgot your password?
+                  </a>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="btn btn-primary w-full"
+              >
+                {loading ? (
+                  <RotateCw size={20} className="animate-spin mr-2" />
+                ) : (
+                  <ArrowRight size={20} className="mr-2" />
+                )}
+                Sign in
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* Right Side - Image */}
+      <div className="relative hidden w-0 flex-1 xl:block">
+        <motion.div
+          className="absolute inset-0 h-full w-full bg-gradient-to-br from-primary-700 to-accent-700 opacity-90"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.9 }}
+          transition={{ duration: 1 }}
+        ></motion.div>
+        <img
+          className="absolute inset-0 h-full w-full object-cover"
+          src={side}
+          alt="People working on laptops"
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center text-white">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
+            <h2 className="text-4xl font-bold">
+              {role === 'seller'
+                ? 'Welcome back, Seller!'
+                : 'Ready to start shopping?'}
+            </h2>
+            <p className="mt-4 max-w-xl text-lg text-white/80">
+              {role === 'seller'
+                ? 'Sign in to manage your products, view orders, and track your earnings.'
+                : 'Sign in to browse products, manage your orders, and connect with sellers.'}
+            </p>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SignInPage;

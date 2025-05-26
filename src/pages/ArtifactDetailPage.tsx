@@ -4,6 +4,7 @@ import { ChevronLeft, Shield, DollarSign, Info, ShoppingCart, Share2 } from 'luc
 import { artifacts } from '../data/mockData';
 import ModelViewer from '../components/three/ModelViewer';
 import { ArtifactModel } from '../types';
+import Navbar from '../components/layout/Navbar';
 
 const ArtifactDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -28,7 +29,11 @@ const ArtifactDetailPage: React.FC = () => {
   }
   
   return (
+    <>
+      <Navbar />
     <div className="min-h-screen bg-primary-700 pt-16">
+      
+      {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Link 
           to="/marketplace" 
@@ -225,6 +230,7 @@ const ArtifactDetailPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

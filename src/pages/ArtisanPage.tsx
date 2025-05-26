@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, CheckCircle, Search, SortAsc, SortDesc } from "lucide-react";
 import green from "/src/assets/greenmart.png";
+import Navbar from '../components/layout/Navbar';
 
 // Expanded artisan data with global traditions and cities
 const artisansData = [
@@ -392,8 +393,10 @@ const ArtisanPage: React.FC = () => {
     .filter((artisan) => !verifiedOnly || artisan.verified);
 
   return (
+    <>
+      <Navbar />
     <div className="min-h-screen bg-primary-800 pt-16">
-      <div className="bg-primary-700 py-16">
+      <div className="bg-primary-800 py-16">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
                   Cultural Artisans
@@ -561,6 +564,7 @@ const ArtisanPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

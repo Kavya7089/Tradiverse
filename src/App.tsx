@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/layout/Navbar';
+
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
 import MarketplacePage from './pages/MarketplacePage';
@@ -8,14 +8,18 @@ import KnowledgeVaultPage from './pages/KnowledgeVaultPage';
 import ImpactDashboardPage from './pages/ImpactDashboardPage';
 import ArtisanPage from './pages/ArtisanPage';
 import AboutPage from './pages/AboutPage';
-import SignInPage from './pages/SignInPage';
-import SignUpPage from './pages/SignUpPage';
+import SignInPage from './pages/auth/SignInPage';
+import SignUpPage from './pages/auth/SignUpPage';
+import UserDashboard from './pages/dashboard/userDashbaord';
+import AdminDashboard from './pages/dashboard/AdminDashboard';
+import Dashboard from './pages/dashboard/Dashboard';
+
 
 function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-        <Navbar />
+        
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -28,6 +32,10 @@ function App() {
             <Route path="/signIn" element={<SignInPage />} />
             <Route path="/signUp" element={<SignUpPage />} />
             <Route path="/knowledge/:id" element={<ArtifactDetailPage />} />
+            <Route path="/dashboarduser" element={<UserDashboard />} />
+            <Route path="/dashboardadmin" element={<AdminDashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            {/* Add more routes as needed */}
           </Routes>
         </main>
         <Footer />

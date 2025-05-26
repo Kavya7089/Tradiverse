@@ -4,6 +4,7 @@ import { Filter, Search, SortAsc, SortDesc } from 'lucide-react';
 import ArtifactCard from '../components/common/ArtifactCard';
 import { artifacts } from '../data/mockData';
 import green from '/src/assets/greenmart.png';
+import Navbar from '../components/layout/Navbar';
 
 const MarketplacePage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -32,8 +33,10 @@ const MarketplacePage: React.FC = () => {
     );
   
   return (
+    <>
+    <Navbar />
     <div className="min-h-screen bg-neutral-50 pt-16">
-      <div className="bg-primary-700 py-16">
+      <div className="bg-primary-800 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl md:text-4xl font-display font-bold text-white mb-4">
             Cultural Artifact Marketplace
@@ -212,6 +215,7 @@ const MarketplacePage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

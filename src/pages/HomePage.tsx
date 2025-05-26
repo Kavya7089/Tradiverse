@@ -11,6 +11,45 @@ import React, { Suspense, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import bgtra from '/src/assets/bgtra.png';
+import logo from '/src/assets/logo.png'; // Update the path to your logo image
+
+// --- Navbar Component ---
+const Navbar: React.FC = () => (
+  <nav className="w-full bg-white shadow-md py-4 px-6 flex justify-between items-center">
+
+    <Link to="/" className=" flex items-center">
+      <img 
+        src={logo} 
+        alt="Heritage Platform Logo" 
+        className="h-10 w-10 mr-2 rounded-full" 
+      />
+      <span className='font-display font-semibold text-lg'>
+        Tradiverse
+      </span>
+    </Link>
+    <div className="flex gap-4">
+      <Link
+        to="/signin"
+        className="px-4 py-2 rounded-md text-primary-700 font-medium hover:bg-primary-100 transition"
+      >
+        Sign In
+      </Link>
+      <Link
+        to="/signup"
+        className="px-4 py-2 rounded-md bg-primary-700 text-white font-medium hover:bg-primary-800 transition"
+      >
+        Sign Up
+      </Link>
+       <Link
+        to="/about"
+        className="px-4 py-2 rounded-md text-primary-700 font-medium hover:bg-primary-100 transition"
+      >
+        About Us
+      </Link>
+    </div>
+  </nav>
+);
+// --- End Navbar ---
 
 // Slowly rotating Model component
 function Model() {
@@ -45,11 +84,20 @@ const HomePage: React.FC = () => {
   
   return (
     <div>
+      <Navbar /> {/* Add the navbar here */}
+
       {/* Hero + 3D Model Side by Side with shared background */}
       
         <div className="flex-1 min-w-full max-w-xxl mb-8 md:mb-0 md:mr-12 rounded-lg ">
           <HeroSection
-            title="Preserving Culture Through Technology"
+            title={
+              <>
+                Preserving Culture Through Technology
+                <span className="block underline text-xl font-large text-primary-200 hover:text-red-700 mt-2">
+                  by Ethoverse
+                </span>
+              </>
+            }
             subtitle="Connect with artisans from around the world, explore authentic cultural artifacts, and help preserve traditional heritage."
             imageUrl={bgtra}
             ctaText="Explore Marketplace"
@@ -223,7 +271,7 @@ const HomePage: React.FC = () => {
             <Link to="/artisans/join" className="bg-white text-primary-700 hover:bg-neutral-50 font-medium py-3 px-8 rounded-md shadow-md transition-colors min-w-[200px]">
               Join as Artisan
             </Link>
-            <Link to="/auth/register" className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-medium py-3 px-8 rounded-md shadow-md transition-colors min-w-[200px]">
+            <Link to="/signup" className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-medium py-3 px-8 rounded-md shadow-md transition-colors min-w-[200px]">
               Create Account
             </Link>
           </div>
