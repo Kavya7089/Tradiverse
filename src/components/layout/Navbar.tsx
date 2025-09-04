@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Globe, Search, User } from 'lucide-react';
+import { Menu, X, Globe, Search, User, Wallet } from 'lucide-react';
 import logo from '/src/assets/logo.png'; 
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const userMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -39,6 +40,20 @@ const Navbar: React.FC = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [userMenuOpen]);
+
+  // Connect Wallet Handler
+  const connectWallet = async () => {
+    if ((window as any).ethereum) {
+      try {
+        const accounts = await (window as any).ethereum.request({ method: 'eth_requestAccounts' });
+        setWalletAddress(accounts[0]);
+      } catch (error) {
+        alert('Wallet connection failed.');
+      }
+    } else {
+      alert('MetaMask is not installed. Please install MetaMask and try again.');
+    }
+  };
 
   const navItems = [
     { name: 'Marketplace', path: '/marketplace' },
@@ -101,6 +116,21 @@ const Navbar: React.FC = () => {
             }`}>
               <Globe size={20} />
             </button>
+            {/* Connect Wallet Button */}
+            {!walletAddress ? (
+              <button
+                onClick={connectWallet}
+                className="flex items-center px-3 py-2 rounded-md bg-primary-700 text-white hover:bg-primary-800 transition"
+              >
+                <Wallet size={18} className="mr-2" />
+                Connect Wallet
+              </button>
+            ) : (
+              <div className="flex items-center px-3 py-2 rounded-md bg-green-100 text-green-800 font-mono text-xs">
+                <Wallet size={16} className="mr-1" />
+                {walletAddress.substring(0, 6)}...{walletAddress.substring(walletAddress.length - 4)}
+              </div>
+            )}
             <div className="relative" ref={userMenuRef}>
               <button 
                 onClick={() => setUserMenuOpen(!userMenuOpen)}
@@ -173,6 +203,21 @@ const Navbar: React.FC = () => {
                 {item.name}
               </Link>
             ))}
+            {/* Connect Wallet Button in Mobile */}
+            {!walletAddress ? (
+              <button
+                onClick={connectWallet}
+                className="flex items-center w-full px-3 py-2 rounded-md bg-primary-700 text-white hover:bg-primary-800 transition mt-2"
+              >
+                <Wallet size={18} className="mr-2" />
+                Connect Wallet
+              </button>
+            ) : (
+              <div className="flex items-center px-3 py-2 rounded-md bg-green-100 text-green-800 font-mono text-xs mt-2">
+                <Wallet size={16} className="mr-1" />
+                {walletAddress.substring(0, 6)}...{walletAddress.substring(walletAddress.length - 4)}
+              </div>
+            )}
           </div>
           <div className="pt-4 pb-3 border-t border-primary-700">
             <div className="flex items-center justify-around px-5">

@@ -1,62 +1,77 @@
 import React from 'react';
 import Navbar from '../../components/layout/Navbar';
 
+const forest = {
+  base: 'from-green-50 via-green-100 to-green-200',
+  block: 'bg-gradient-to-br from-green-100 to-green-200 border-l-8 border-green-700',
+  accent: 'bg-green-700 text-white',
+  text: 'text-green-900',
+  shadow: 'shadow-xl',
+};
+
 const AdminDashboard: React.FC = () => {
   return (
-    <div className="bg-primary-50 min-h-screen">
+    <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-primary-50 to-primary-100 pt-16 flex items-center justify-center">
-        <div className="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-4xl space-y-10">
+      <div className="pt-20 min-h-screen bg-gradient-to-br from-green-50 via-green-100 to-green-200 flex items-center justify-center">
+        <div className="w-full max-w-5xl space-y-10">
+          {/* Header */}
+          <div className="text-center mb-2">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-green-900 drop-shadow-lg tracking-tight">
+              Seller Dashboard
+            </h1>
+            <p className="text-lg text-green-700 mt-2">Manage your products, orders, and earnings at a glance.</p>
+          </div>
 
           {/* Profile Overview */}
-          <section className="rounded-xl shadow-lg p-6 flex items-center gap-6 bg-gradient-to-br from-primary-100 to-primary-300 border-l-8 border-primary-600">
-            <div className="flex-shrink-0 flex items-center justify-center h-16 w-16 rounded-full bg-primary-600 text-white text-3xl shadow">
+          <section className={`${forest.block} ${forest.shadow} rounded-2xl p-6 flex items-center gap-6`}>
+            <div className="flex-shrink-0 flex items-center justify-center h-20 w-20 rounded-full bg-green-700 text-white text-4xl shadow-lg animate-bounce-slow">
               🧑‍💼
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-primary-700 mb-1">Profile Overview</h3>
-              <div className="text-primary-800 space-y-1">
-                <p><span className="font-semibold">Name:</span> John Seller</p>
-                <p><span className="font-semibold">Email:</span> johnseller@example.com</p>
+              <h3 className="text-2xl font-bold text-green-800 mb-1">Profile Overview</h3>
+              <div className="text-green-900 space-y-1">
+                <p><span className="font-semibold">Name:</span>Kavya Rajoria</p>
+                <p><span className="font-semibold">Email:</span> kavyarajoria9691@example.com</p>
                 <p><span className="font-semibold">Role:</span> Seller</p>
               </div>
             </div>
           </section>
 
           {/* Add New Product */}
-          <section className="rounded-xl shadow-lg p-6 bg-gradient-to-br from-green-50 to-green-200 border-l-8 border-green-500">
+          <section className={`${forest.block} ${forest.shadow} rounded-2xl p-6`}>
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-2xl">🆕</span>
+              <span className="text-3xl animate-pulse">🆕</span>
               <h3 className="text-xl font-bold text-green-800">Add New Product</h3>
             </div>
             <form className="flex flex-col md:flex-row gap-4 items-center">
               <input className="border border-green-300 rounded px-3 py-2 w-full md:w-1/4" type="text" placeholder="Product Name" />
               <input className="border border-green-300 rounded px-3 py-2 w-full md:w-1/6" type="number" placeholder="Price" />
               <textarea className="border border-green-300 rounded px-3 py-2 w-full md:w-1/3" placeholder="Description" />
-              <button className="bg-green-600 text-white rounded px-5 py-2 hover:bg-green-700 transition" type="submit">
+              <button className="bg-green-700 text-white rounded px-5 py-2 hover:bg-green-800 transition" type="submit">
                 Add
               </button>
             </form>
           </section>
 
           {/* Manage Products */}
-          <section className="rounded-xl shadow-lg p-6 bg-gradient-to-br from-yellow-50 to-yellow-200 border-l-8 border-yellow-500">
+          <section className={`${forest.block} ${forest.shadow} rounded-2xl p-6`}>
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-2xl">📦</span>
-              <h3 className="text-xl font-bold text-yellow-800">Manage Products</h3>
+              <span className="text-3xl">📦</span>
+              <h3 className="text-xl font-bold text-green-800">Manage Products</h3>
             </div>
-            <ul className="divide-y divide-yellow-200">
+            <ul className="divide-y divide-green-200">
               <li className="py-3 flex justify-between items-center">
                 <span className="font-medium">Product 1</span>
                 <div>
-                  <button className="text-yellow-700 hover:underline mr-3">Edit</button>
+                  <button className="text-green-700 hover:underline mr-3">Edit</button>
                   <button className="text-red-600 hover:underline">Delete</button>
                 </div>
               </li>
               <li className="py-3 flex justify-between items-center">
                 <span className="font-medium">Product 2</span>
                 <div>
-                  <button className="text-yellow-700 hover:underline mr-3">Edit</button>
+                  <button className="text-green-700 hover:underline mr-3">Edit</button>
                   <button className="text-red-600 hover:underline">Delete</button>
                 </div>
               </li>
@@ -64,39 +79,39 @@ const AdminDashboard: React.FC = () => {
           </section>
 
           {/* Order Requests */}
-          <section className="rounded-xl shadow-lg p-6 bg-gradient-to-br from-blue-50 to-blue-200 border-l-8 border-blue-500">
+          <section className={`${forest.block} ${forest.shadow} rounded-2xl p-6`}>
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-2xl">📝</span>
-              <h3 className="text-xl font-bold text-blue-800">Order Requests</h3>
+              <span className="text-3xl">📝</span>
+              <h3 className="text-xl font-bold text-green-800">Order Requests</h3>
             </div>
-            <ul className="divide-y divide-blue-200">
+            <ul className="divide-y divide-green-200">
               <li className="py-3 flex justify-between items-center">
                 <span>Order #1234 - Product 1</span>
-                <button className="bg-blue-600 text-white rounded px-4 py-1 hover:bg-blue-700 transition">View</button>
+                <button className="bg-green-700 text-white rounded px-4 py-1 hover:bg-green-800 transition">View</button>
               </li>
               <li className="py-3 flex justify-between items-center">
                 <span>Order #1235 - Product 2</span>
-                <button className="bg-blue-600 text-white rounded px-4 py-1 hover:bg-blue-700 transition">View</button>
+                <button className="bg-green-700 text-white rounded px-4 py-1 hover:bg-green-800 transition">View</button>
               </li>
             </ul>
           </section>
 
           {/* Earnings Summary */}
-          <section className="rounded-xl shadow-lg p-6 flex items-center justify-between bg-gradient-to-br from-purple-50 to-purple-200 border-l-8 border-purple-500">
+          <section className={`${forest.block} ${forest.shadow} rounded-2xl p-6 flex items-center justify-between`}>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">💰</span>
-              <h3 className="text-xl font-bold text-purple-800">Earnings Summary</h3>
+              <span className="text-3xl">💰</span>
+              <h3 className="text-xl font-bold text-green-800">Earnings Summary</h3>
             </div>
-            <span className="font-extrabold text-2xl text-purple-700">$2,500</span>
+            <span className="font-extrabold text-2xl text-green-700">$2,500</span>
           </section>
 
           {/* Customer Reviews */}
-          <section className="rounded-xl shadow-lg p-6 bg-gradient-to-br from-pink-50 to-pink-200 border-l-8 border-pink-400">
+          <section className={`${forest.block} ${forest.shadow} rounded-2xl p-6`}>
             <div className="flex items-center gap-3 mb-4">
-              <span className="text-2xl">⭐</span>
-              <h3 className="text-xl font-bold text-pink-800">Customer Reviews</h3>
+              <span className="text-3xl">⭐</span>
+              <h3 className="text-xl font-bold text-green-800">Customer Reviews</h3>
             </div>
-            <ul className="divide-y divide-pink-200">
+            <ul className="divide-y divide-green-200">
               <li className="py-3">
                 <span className="font-semibold">Jane Doe:</span> <span className="italic">Great product, fast shipping!</span>
               </li>
@@ -107,7 +122,7 @@ const AdminDashboard: React.FC = () => {
           </section>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

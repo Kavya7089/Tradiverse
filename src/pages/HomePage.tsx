@@ -268,7 +268,7 @@ const HomePage: React.FC = () => {
             Whether you're an artisan looking to share your craft, or someone passionate about preserving cultural heritage, there's a place for you.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-            <Link to="/artisans/join" className="bg-white text-primary-700 hover:bg-neutral-50 font-medium py-3 px-8 rounded-md shadow-md transition-colors min-w-[200px]">
+            <Link to="/signup" className="bg-white text-primary-700 hover:bg-neutral-50 font-medium py-3 px-8 rounded-md shadow-md transition-colors min-w-[200px]">
               Join as Artisan
             </Link>
             <Link to="/signup" className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-medium py-3 px-8 rounded-md shadow-md transition-colors min-w-[200px]">
