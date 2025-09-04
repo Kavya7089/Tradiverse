@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom'; // Add this import
 
 import Spline from '@splinetool/react-spline';
 
@@ -57,12 +58,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.4 }}
                 >
-                  <a
-                    href={ctaLink}
+                  <Link
+                    to={ctaLink}
                     className="inline-block bg-primary-500 hover:bg-primary-600 text-white font-medium py-3 px-8 rounded-md shadow-md transition-colors text-lg"
                   >
                     {ctaText}
-                  </a>
+                  </Link>
                 </motion.div>
               )}
             </div>
