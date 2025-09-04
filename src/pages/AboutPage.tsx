@@ -3,11 +3,40 @@ import beu from '/src/assets/3dbeu.png'; // Replace with your image path
 
 import { Link } from 'react-router-dom';
 import logo from '/src/assets/logo.png';
-// import mahi from '/src/assets/mahi.png';
-// import nishkarsh from '/src/assets/nishakarsh.png';
-// import kavya from '/src/assets/kavya.png';  
-// import renam from '/src/assets/renam.png';
-// import aryan from '/src/assets/aryan.png';
+import kavya from '/src/assets/kavya.png';  
+import nishkarsh from '/src/assets/nishakarsh.png';
+import mahi from '/src/assets/mahi.png';
+import renam from '/src/assets/renam.png';
+import aryan from '/src/assets/aryan.png';
+
+// Fix mates array: use image variables directly
+const mates = [
+  {
+    name: 'Kavya Rajoria',
+    role: 'Tech Lead, Developer',
+    img: kavya,
+  },
+  {
+    name: 'Nishkarsh Gupta',
+    role: 'Cultural Content Curator',
+    img: nishkarsh,
+  },
+  {
+    name: 'Mahi Shriwastava',
+    role: 'Community Engagement',
+    img: mahi,
+  },
+  {
+    name: 'Aryan Tiwari',
+    role: 'Hardware Expert',
+    img: aryan,
+  },
+  {
+    name: 'Renam Chourasia',
+    role: 'UI/UX Designer',
+    img: renam,
+  },
+];
 
 const Navbar: React.FC = () => (
   <nav className="w-full bg-white shadow-md py-4 px-6 flex justify-between items-center">
@@ -44,35 +73,6 @@ const Navbar: React.FC = () => (
     </div>
   </nav>
 );
-
-const mates = [
-  {
-    name: 'Kavya Rajoria',
-    role: 'Tech Lead, Developer',
-    img: '/src/assets/kavya.png',
-  },
-  {
-    name: 'Nishkarsh Gupta',
-    role: ' Cultural Content Curator',
-    img: '/src/assets/nishakarsh.png',
-  },
-  {
-    name: 'Mahi Shriwastava',
-    role: 'Community Engagement',
-    img: '/src/assets/mahi.png',
-  },
-  {
-    name: 'Aryan Tiwari',
-    role: 'Hardware Expert',
-    img: '/src/assets/aryan.png',
-  },
-  {
-    name: 'Renam Chourasia',
-    role: 'UI/UX Designer',
-    img: '/src/assets/renam.png' ,
-  },
-
-];
 
 const AboutPage: React.FC = () => {
   return (
