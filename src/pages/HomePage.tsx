@@ -94,14 +94,14 @@ const HomePage: React.FC = () => {
               <>
                 Preserving Culture Through Technology
                 <span className="block underline text-xl font-large text-primary-200 hover:text-red-700 mt-2">
-                  by Ethoverse
+                  by Ethnoverse
                 </span>
               </>
             }
             subtitle="Connect with artisans from around the world, explore authentic cultural artifacts, and help preserve traditional heritage."
             imageUrl={bgtra}
-            ctaText="Explore Marketplace"
-            ctaLink="/marketplace"
+            ctaText="Explore Ethnoverse"
+            ctaLink="/about"
           />
         </div>
         
