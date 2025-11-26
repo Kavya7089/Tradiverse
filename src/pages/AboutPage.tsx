@@ -3,21 +3,22 @@ import beu from '/src/assets/3dbeu.png'; // Replace with your image path
 
 import { Link } from 'react-router-dom';
 import logo from '/src/assets/logo.png';
-import kavya from '/src/assets/kavya.png';  
-import nishkarsh from '/src/assets/nishakarsh.png';
+import kavya from '/src/assets/aditi.jpg';  
+import nishkarsh from '/src/assets/priyanshu.jpg';
 import mahi from '/src/assets/mahi.png';
-import renam from '/src/assets/renam.png';
-import aryan from '/src/assets/aryan.png';
+import renam from '/src/assets/amit.jpg';
+import aryan from '/src/assets/nageshwar.jpg';
+import anjali from '/src/assets/anjali.jpg';
 
 // Fix mates array: use image variables directly
 const mates = [
   {
-    name: 'Kavya Rajoria',
+    name: 'Aditi Sahu',
     role: 'Tech Lead, Developer',
     img: kavya,
   },
   {
-    name: 'Nishkarsh Gupta',
+    name: 'Priyanshu Kumar Gupta',
     role: 'Cultural Content Curator',
     img: nishkarsh,
   },
@@ -27,14 +28,19 @@ const mates = [
     img: mahi,
   },
   {
-    name: 'Aryan Tiwari',
-    role: 'Hardware Expert',
+    name: 'Nageshwar Rai',
+    role: 'Business Strategist',
     img: aryan,
   },
   {
-    name: 'Renam Chourasia',
+    name: 'Amit Sharma ',
     role: 'UI/UX Designer',
     img: renam,
+  },
+  {
+    name: 'Anjali Yadav',
+    role: 'Marketing Outreach lead',
+    img: anjali,
   },
 ];
 
