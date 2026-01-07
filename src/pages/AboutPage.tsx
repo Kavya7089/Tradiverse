@@ -3,22 +3,21 @@ import beu from '/src/assets/3dbeu.png'; // Replace with your image path
 
 import { Link } from 'react-router-dom';
 import logo from '/src/assets/logo.png';
-import kavya from '/src/assets/aditi.jpg';  
-import nishkarsh from '/src/assets/priyanshu.jpg';
+import kavya from '/src/assets/kavya.png';  
+import nishkarsh from '/src/assets/nishakarsh.png';
 import mahi from '/src/assets/mahi.png';
-import renam from '/src/assets/amit.jpg';
-import aryan from '/src/assets/nageshwar.jpg';
-import anjali from '/src/assets/anjali.jpg';
+import renam from '/src/assets/renam.png';
+import aryan from '/src/assets/aryan.png';
 
-// Fix mates array: use image variables directly
+
 const mates = [
   {
-    name: 'Aditi Sahu',
+    name: 'Kavya Rajoria',
     role: 'Tech Lead, Developer',
     img: kavya,
   },
   {
-    name: 'Priyanshu Kumar Gupta',
+    name: 'Nishkarsh Gupta',
     role: 'Cultural Content Curator',
     img: nishkarsh,
   },
@@ -28,20 +27,16 @@ const mates = [
     img: mahi,
   },
   {
-    name: 'Nageshwar Rai',
+    name: 'Aryan Tiwari',
     role: 'Business Strategist',
     img: aryan,
   },
   {
-    name: 'Amit Sharma ',
+    name: 'Renam Chourasia',
     role: 'UI/UX Designer',
     img: renam,
   },
-  {
-    name: 'Anjali Yadav',
-    role: 'Marketing Outreach lead',
-    img: anjali,
-  },
+  
 ];
 
 const Navbar: React.FC = () => (
